@@ -3,7 +3,7 @@
 return [
   'database' => [
     'host' => 'localhost',
-    'dbname' => 'practice',
+    'dbname' => 'notes_app',
     'port' => 3306,
     'user' => 'root',
     'password' => 'asif0599',

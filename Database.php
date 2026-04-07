@@ -3,6 +3,8 @@
 class Database
 {
   public $connection;
+  public $statement;
+
   public function __construct($config)
   {
     $dsn = 'mysql:' . http_build_query($config, '', ';');
@@ -18,10 +20,29 @@ class Database
 
   public function query($query, $params = [])
   {
-    $query = $this->connection->prepare($query);
-    $query->execute($params);
+    $this->statement = $this->connection->prepare($query);
+    $this->statement->execute($params);
 
-    $posts = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $posts;
+    return $this;
+  }
+
+  public function findAll()
+  {
+    return $this->statement->fetchAll();
+  }
+
+  public function findSingle()
+  {
+    return $this->statement->fetch();
+  }
+
+  public function findOrFail()
+  {
+    $result = $this->findSingle();
+    if (!$result) {
+      abort(404, "Not Found");
+    } else {
+      return $result;
+    }
   }
 }
