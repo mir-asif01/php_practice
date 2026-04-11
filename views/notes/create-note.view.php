@@ -1,6 +1,7 @@
-<?php require('./views/partials/header.php') ?>
-<?php require('./views/partials/nav.php') ?>
-<?php require('./views/partials/banner.php') ?>
+<?php require(base_path('./views/partials/header.php')) ?>
+<?php require(base_path('./views/partials/nav.php')) ?>
+<?php require(base_path('./views/partials/banner.php')) ?>
+
 
 <main class="mt-[50px] flex justify-center align-center">
   <form method="POST" action="" class="flex flex-col space-y-4 border rounded-md p-10">
@@ -24,4 +25,4 @@
   </form>
 </main>
 
-<?php require('./views/partials/footer.php') ?>
+<?php require(base_path('./views/partials/footer.php')) ?>

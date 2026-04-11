@@ -3,7 +3,7 @@
 $heading = "Your Notes";
 
 
-$config = require('./config.php');
+$config = require(base_path('./config.php'));
 // connect to database
 $db = new Database($config['database']);
 // $user_id = $_GET['user_id'];
@@ -23,4 +23,8 @@ authorize($note['user_id'] === 2);
 
 // dd($note);
 
-require "./views/notes/note.view.php";
+// require "./views/notes/note.view.php";
+view('notes/note.view.php', [
+  'note' => $note,
+  'heading' => 'Your Notes'
+]);
