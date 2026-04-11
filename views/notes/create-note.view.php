@@ -1,0 +1,27 @@
+<?php require('./views/partials/header.php') ?>
+<?php require('./views/partials/nav.php') ?>
+<?php require('./views/partials/banner.php') ?>
+
+<main class="mt-[50px] flex justify-center align-center">
+  <form method="POST" action="" class="flex flex-col space-y-4 border rounded-md p-10">
+    <div class="flex flex-col">
+      <label for="title" class="text-xl text-white mb-2">Title</label>
+      <input name="title" id="title" class="px-3 py-2" />
+      <?php if (isset($errors['title'])): ?>
+        <p class="text-red-800 text-xl bold mt-1"><?= $errors['title'] ?></p>
+      <?php endif; ?>
+    </div>
+    <div class="flex flex-col">
+      <label for="body" class="text-xl text-white mb-2">Description</label>
+      <textarea name="body" id="body" class="px-3 py-2"></textarea>
+      <?php if (isset($errors['body'])): ?>
+        <p class="text-red-800 text-xl bold mt-1"><?= $errors['body'] ?></p>
+      <?php endif; ?>
+    </div>
+    <p>
+      <button type="submit" class="bg-white text-blue-800 px-3 py-2 text-xl semibold mt-4">Save</button>
+    </p>
+  </form>
+</main>
+
+<?php require('./views/partials/footer.php') ?>

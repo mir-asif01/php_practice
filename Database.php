@@ -9,8 +9,6 @@ class Database
   {
     $dsn = 'mysql:' . http_build_query($config, '', ';');
 
-    // $dsn = "mysql:host={$config['host']};dbname={$config['dbname']};charset={$config['charset']}";
-
     // pdo = php database object
     // best way to load credentials from envs
     $this->connection = new PDO($dsn, $config['user'], $config['password'], [

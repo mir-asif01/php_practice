@@ -3,7 +3,7 @@
 $heading = "Your Notes";
 
 
-$config = require('config.php');
+$config = require('./config.php');
 // connect to database
 $db = new Database($config['database']);
 // $user_id = $_GET['user_id'];
@@ -13,4 +13,4 @@ $notes = $db->query($query)->findAll();
 
 // dd($notes);
 
-require "views/notes.view.php";
+require "./views/notes/notes.view.php";
