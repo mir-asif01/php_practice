@@ -17,7 +17,7 @@ function abort($status, $msg)
 {
   // $status = $status;
   // $msg = $msg;
-  require "views/404.php";
+  require base_path("views/404.php");
   die();
 }
 

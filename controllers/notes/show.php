@@ -2,10 +2,11 @@
 
 use Core\Database;
 
+$config = require(base_path('./config.php'));
+
 $heading = "Your Notes";
 
 
-$config = require(base_path('./config.php'));
 // connect to database
 $db = new Database($config['database']);
 // $user_id = $_GET['user_id'];

@@ -1,5 +1,5 @@
-<?php require('partials/header.php') ?>
-<?php require('partials/nav.php') ?>
+<?php require(base_path('views/partials/header.php')) ?>
+<?php require(base_path('views/partials/nav.php')) ?>
 
 <?php require('partials/banner.php') ?>
 <main>
@@ -10,4 +10,4 @@
     <h2 class="text-6xl text-white text-center"><?= $msg ?></h2>
   </div>
 </main>
-<?php require('partials/footer.php') ?>
+<?php require(base_path('views/partials/footer.php')) ?>
