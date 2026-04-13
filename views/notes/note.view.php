@@ -12,6 +12,7 @@
   </div>
   <br>
   <form class="p-4 text-white" method="POST">
+    <input type="hidden" name="__method" value="DELETE">
     <input type="hidden" name="id" value=<?= $note['id'] ?>>
     <button type="submit">Delete</button>
   </form>

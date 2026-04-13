@@ -23,7 +23,7 @@ function abort($status, $msg)
 
 function authorize($condition)
 {
-  if (! $condition) {
+  if (!$condition) {
     abort(403, "Forbidden Access");
   }
 }

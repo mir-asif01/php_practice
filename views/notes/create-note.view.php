@@ -4,7 +4,7 @@
 
 
 <main class="mt-[50px] flex justify-center align-center">
-  <form method="POST" action="" class="flex flex-col space-y-4 border rounded-md p-10">
+  <form method="POST" action="/notes" class="flex flex-col space-y-4 border rounded-md p-10">
     <div class="flex flex-col">
       <label for="title" class="text-xl text-white mb-2">Title</label>
       <input name="title" id="title" class="px-3 py-2" />
