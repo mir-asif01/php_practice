@@ -1,15 +1,13 @@
 <?php
 
-use Core\Database;
+use Core\App;
 use Core\Validator;
-
-$config = require(base_path('./config.php'));
 
 require(base_path('Core/Validator.php'));
 
 
 // connect to database
-$db = new Database($config['database']);
+$db = App::getContainer()->resolve('Core\Database');
 
 $errors = [];
 $validator = new Validator();

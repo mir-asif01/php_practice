@@ -1,15 +1,12 @@
 <?php
 
-use Core\Database;
-
-$config = require(base_path('./config.php'));
+use Core\App;
 
 $heading = "Your Notes";
 
 
-// connect to database
-$db = new Database($config['database']);
-// $user_id = $_GET['user_id'];
+$db = App::getContainer()->resolve('Core\Database');
+// dd($db);
 $query = "select * from notes where user_id=2;";
 
 $notes = $db->query($query)->findAll();

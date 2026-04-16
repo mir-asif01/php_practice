@@ -4,6 +4,7 @@ const BASE_PATH = __DIR__ . '/../';
 
 require BASE_PATH . 'Core/functions.php';
 
+
 // require base_path("Core/Database.php");
 spl_autoload_register(function ($class) {
   $new_class = str_replace('\\', '/', $class);
@@ -14,11 +15,13 @@ $router = new \Core\Router();
 
 $routes = require base_path('routes.php');
 
+require base_path('bootstrap.php');
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $method = $_POST['__method'] ?? $_SERVER['REQUEST_METHOD'];
 
 // dd($_SERVER["REQUEST_METHOD"]);
 
-$router->route($uri,$method);
+$router->route($uri, $method);
 
