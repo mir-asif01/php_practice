@@ -2,10 +2,12 @@
 
 namespace Core;
 
-class Router {
-protected $routes = [];
+class Router
+{
+  protected $routes = [];
 
-public function get($uri, $controller){
+  public function get($uri, $controller)
+  {
     $this->routes[] = [
       'uri' => $uri,
       'controller' => $controller,
@@ -13,7 +15,8 @@ public function get($uri, $controller){
     ];
   }
 
-  public function post($uri, $controller){
+  public function post($uri, $controller)
+  {
     $this->routes[] = [
       'uri' => $uri,
       'controller' => $controller,
@@ -21,7 +24,8 @@ public function get($uri, $controller){
     ];
   }
 
-  public function delete($uri, $controller){
+  public function delete($uri, $controller)
+  {
     $this->routes[] = [
       'uri' => $uri,
       'controller' => $controller,
@@ -29,7 +33,8 @@ public function get($uri, $controller){
     ];
   }
 
-  public function patch($uri, $controller){
+  public function patch($uri, $controller)
+  {
     $this->routes[] = [
       'uri' => $uri,
       'controller' => $controller,
@@ -38,7 +43,8 @@ public function get($uri, $controller){
   }
 
 
-  public function put($uri, $controller){
+  public function put($uri, $controller)
+  {
     $this->routes[] = [
       'uri' => $uri,
       'controller' => $controller,
@@ -46,25 +52,22 @@ public function get($uri, $controller){
     ];
   }
 
-  public function route($uri,$method){
+  public function route($uri, $method)
+  {
 
-  //  var_dump($method);
+    //  var_dump($method);
 
-    foreach($this->routes as $route){
-      if($route['uri'] === $uri && $route['method'] === strtoupper($method)){
+    foreach ($this->routes as $route) {
+      if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
         // return require base_path($route['controller']);
         require base_path($route['controller']);
         // var_dump($route['controller']);
       }
     }
-    // view('404.php',[
-    //   'status' => 404,
-    //   'msg' => 'Page not found'
-    // ]);
-    // die();
   }
 
-};
+}
+;
 
 
 // $routes = require(base_path('routes.php'));
