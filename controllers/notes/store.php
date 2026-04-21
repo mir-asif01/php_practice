@@ -3,7 +3,6 @@
 use Core\App;
 use Core\Validator;
 
-require(base_path('Core/Validator.php'));
 
 
 // connect to database
