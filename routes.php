@@ -27,3 +27,5 @@ $router->post("/register", "controllers/register/store.php");
 $router->get("/login", "controllers/login/login.php")->middleware('guest');
 $router->post("/login", "controllers/login/authenticate.php");
 
+$router->delete("/logout", "controllers/logout.php")->middleware('auth');
+

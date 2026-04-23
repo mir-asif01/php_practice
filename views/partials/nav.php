@@ -17,7 +17,15 @@
               class="<?= urlIs('/contact.php') ? 'bg-gray-950/50' : ''; ?> ?> rounded-md px-3 py-2 text-sm font-medium text-white">Contact</a>
             <?php if ($_SESSION['user'] ?? false): ?>
               <a href="/notes" aria-current="page"
-                class="<?= $_SERVER['REQUEST_URI'] === '/about.php' ? 'bg-gray-950/50' : ''; ?> ?> rounded-md px-3 py-2 text-sm font-medium text-white">Notes</a>
+                class="<?= $_SERVER['REQUEST_URI'] === '/notes.php' ? 'bg-gray-950/50' : ''; ?> ?> rounded-md px-3 py-2 text-sm font-medium text-white">Notes</a>
+
+              <div>
+                <form action="/logout" method="POST">
+                  <input type="hidden" name="__method" value="DELETE">
+                  <button type="submit"
+                    class="bg-gray-950 rounded-md px-3 py-2 text-sm font-medium text-white">Logout</button>
+                </form>
+              </div>
             <?php else: ?>
               <a href="/register" aria-current="page"
                 class="<?= urlIs('/register.php') ? 'bg-gray-950/50' : ''; ?> ?> rounded-md px-3 py-2 text-sm font-medium text-white">Register</a>
