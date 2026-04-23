@@ -46,7 +46,7 @@ if ($user['email']) {
     'email' => $_POST['email']
   ];
 
-  header("location: /");
+  header("location: /notes");
   exit();
 }
 

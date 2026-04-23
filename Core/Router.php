@@ -2,66 +2,77 @@
 
 namespace Core;
 
+use Core\Middleware\Auth;
+use Core\Middleware\Guest;
+use Core\Middleware\Middleware;
+
 class Router
 {
   protected $routes = [];
 
-  public function get($uri, $controller)
+  public function add($uri, $method, $controller)
   {
     $this->routes[] = [
       'uri' => $uri,
       'controller' => $controller,
-      'method' => 'GET'
+      'method' => $method,
+      'middleware' => null
     ];
+
+    return $this;
+  }
+
+  public function get($uri, $controller)
+  {
+    return $this->add($uri, "GET", $controller);
   }
 
   public function post($uri, $controller)
   {
-    $this->routes[] = [
-      'uri' => $uri,
-      'controller' => $controller,
-      'method' => 'POST'
-    ];
+    return $this->add($uri, "POST", $controller);
   }
 
   public function delete($uri, $controller)
   {
-    $this->routes[] = [
-      'uri' => $uri,
-      'controller' => $controller,
-      'method' => 'DELETE'
-    ];
+    return $this->add($uri, "DELETE", $controller);
   }
 
   public function patch($uri, $controller)
   {
-    $this->routes[] = [
-      'uri' => $uri,
-      'controller' => $controller,
-      'method' => 'PATCH'
-    ];
+    return $this->add($uri, "PATCH", $controller);
+  }
+  public function put($uri, $controller)
+  {
+    return $this->add($uri, "PUT", $controller);
   }
 
 
-  public function put($uri, $controller)
+  public function middleware($key)
   {
-    $this->routes[] = [
-      'uri' => $uri,
-      'controller' => $controller,
-      'method' => 'PUT'
-    ];
+    $this->routes[array_key_last($this->routes)]['middleware'] = $key;
   }
 
   public function route($uri, $method)
   {
-
-    //  var_dump($method);
-
     foreach ($this->routes as $route) {
       if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-        // return require base_path($route['controller']);
+        Middleware::resolve($route['middleware']);
+
+
+
+        // if ($route['middleware']) {
+        //   $middleware = Middleware::MAP[$route['middleware']];
+        //   (new $middleware())->handle();
+        // }
+
+
+        // if ($route['middleware'] === 'guest') {
+        //   (new Auth())->handle();
+        // }
+        // if ($route['middleware'] === 'auth') {
+        //   (new Guest())->handle();
+        // }
         require base_path($route['controller']);
-        // var_dump($route['controller']);
       }
     }
   }
