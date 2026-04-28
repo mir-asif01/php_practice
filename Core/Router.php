@@ -72,7 +72,7 @@ class Router
         // if ($route['middleware'] === 'auth') {
         //   (new Guest())->handle();
         // }
-        require base_path($route['controller']);
+        require base_path("Http/controllers" . $route['controller']);
       }
     }
   }
