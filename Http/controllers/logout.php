@@ -1,5 +1,7 @@
 <?php
 
-unset($_SESSION['user']);
-header("location: /");
-exit();
+use Core\Session;
+
+
+Session::unflash();
+return redirect("/");

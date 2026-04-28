@@ -14,6 +14,17 @@ class Session
 
   public static function get($key, $default = null)
   {
+    return $_SESSION['__flash'][$key] ?? $_SESSION[$key] ?? $default;
+  }
+
+  public static function flash($key, $value)
+  {
+    $_SESSION['__flash'][$key] = $value;
+  }
+
+  public static function unflash()
+  {
+    unset($_SESSION['__flash']);
   }
 
   public static function flush()

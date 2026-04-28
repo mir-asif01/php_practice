@@ -1,4 +1,5 @@
 <?php
+
 function dd($value)
 {
   echo "<pre>";
@@ -43,4 +44,9 @@ function redirect($path)
 {
   header("location: {$path}");
   exit();
+}
+
+function old()
+{
+  return core\Session::get('old');
 }

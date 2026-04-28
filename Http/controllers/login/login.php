@@ -1,6 +1,7 @@
 <?php
+use Core\Session;
 
 view("auth/login.view.php", [
   'heading' => 'Login',
-  'errors' => $_SESSION['__flash']['errors'] ?? []
+  'errors' => Session::get('errors') ?? []
 ]);

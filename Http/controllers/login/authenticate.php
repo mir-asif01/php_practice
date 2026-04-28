@@ -2,6 +2,7 @@
 
 use Http\Forms\LoginForm;
 use Core\Authenticator;
+use Core\Session;
 // $db = App::getContainer()->resolve('Core\Database');
 
 $form = new LoginForm();
@@ -19,8 +20,9 @@ if ($auth->attempt($_POST['email'], $_POST['password'])) {
   header('location: /notes');
   exit();
 } else {
-
-  $_SESSION['__flash']['errors'] = $auth->getError();
+  // dd($auth->getError());
+  Session::flash('errors', $auth->getError());
+  Session::flash('old', $_POST['email']);
   return redirect("/login");
 
   // header('location: /login');
