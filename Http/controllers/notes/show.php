@@ -7,7 +7,7 @@ $heading = "Your Notes";
 
 $db = App::getContainer()->resolve('Core\Database');
 // dd($db);
-$query = "select * from notes where user_id=2;";
+$query = "select * from notes where user_id=10;";
 
 $notes = $db->query($query)->findAll();
 

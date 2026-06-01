@@ -29,5 +29,5 @@ $method = $_POST['__method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($uri, $method);
 
-Session::unflash();
+// Session::unflash();
 

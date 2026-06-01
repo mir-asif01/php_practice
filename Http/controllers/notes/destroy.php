@@ -8,7 +8,7 @@ $db = App::getContainer()->resolve('Core\Database');
 $query = "select * from notes where id=:id;";
 $note = $db->query($query, ['id' => $_GET['id']])->findOrFail();
 
-authorize($note['user_id'] === 2);
+authorize($note['user_id'] === 10);
 
 $db->query('delete from notes where id = :id', [
   'id' => $_POST['id']

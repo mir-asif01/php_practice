@@ -30,7 +30,7 @@ if (!empty($errors)) {
 $db->query("insert into notes(title,body,user_id) values(:title, :body, :user_id);", [
   'title' => $_POST['title'],
   'body' => $_POST['body'],
-  'user_id' => 2
+  'user_id' => 10
 ]);
 
 header('location: /notes');
