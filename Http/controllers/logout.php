@@ -2,6 +2,5 @@
 
 use Core\Session;
 
-
-Session::unflash();
+unset($_SESSION['user']);
 return redirect("/");

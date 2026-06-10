@@ -12,7 +12,7 @@ require BASE_PATH . 'Core/functions.php';
 // require base_path("Core/Database.php");
 spl_autoload_register(function ($class) {
   $new_class = str_replace('\\', '/', $class);
-  require base_path($new_class . '.php');
+  require base_path((string) $new_class . '.php');
 });
 
 $router = new \Core\Router();
@@ -29,5 +29,5 @@ $method = $_POST['__method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($uri, $method);
 
-// Session::unflash();
+Session::unflash();
 

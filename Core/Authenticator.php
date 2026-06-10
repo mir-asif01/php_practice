@@ -20,8 +20,12 @@ class Authenticator
           'email' => $_POST['email']
         ];
         return true;
+      } else {
+        $this->setError('password', 'Password is incorrect');
+        return false;
       }
-      $this->setError('password', 'Password is incorrect');
+    } else {
+      $this->setError('email', 'No user found with this email!');
       return false;
     }
   }

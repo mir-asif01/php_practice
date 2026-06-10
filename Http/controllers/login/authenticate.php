@@ -3,7 +3,6 @@
 use Http\Forms\LoginForm;
 use Core\Authenticator;
 use Core\Session;
-// $db = App::getContainer()->resolve('Core\Database');
 
 $form = new LoginForm();
 
@@ -20,16 +19,20 @@ if ($auth->attempt($_POST['email'], $_POST['password'])) {
   header('location: /notes');
   exit();
 } else {
-  // dd($auth->getError());
-  Session::flash('errors', $auth->getError());
-  Session::flash('old', $_POST['email']);
-  return redirect("/login");
+  /*
+  -----Understanding the flash and unflash function from Session Object-----
+    1.this stores data 
+      flash function -> $_SESSION['__flash'][$key] = $value;
+    2.this removes data from session
+      unflash function -> unset($_SESSION['__flash']);
 
-  // header('location: /login');
-  // exit();
-  // return view("auth/login.view.php", [
-  //   'errors' => $auth->getError(),
-  //   'heading' => 'Login'
-  // ]);
+    ----- Purpose -----
+    To store authentication related eerors and user inputs in sessions and removes them after a short period of time *logically after reloading the application*
+
+  */
+
+  Session::flash('errors', $auth->getError()); // Passing email and password errors to show after failed attempt.
+  Session::flash('old', $_POST['email']); // Passing the old email input to show after failed attempt.
+  return redirect("/login");
 }
 
