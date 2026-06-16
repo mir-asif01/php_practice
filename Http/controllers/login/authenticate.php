@@ -16,8 +16,9 @@ if (!$form->validate($_POST['email'], $_POST['password'])) {
 $auth = new Authenticator();
 
 if ($auth->attempt($_POST['email'], $_POST['password'])) {
-  header('location: /notes');
-  exit();
+  if (isset($_SESSION["user"])) {
+    return redirect('/notes');
+  }
 } else {
   /*
   -----Understanding the flash and unflash function from Session Object-----

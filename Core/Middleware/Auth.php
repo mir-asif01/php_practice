@@ -6,9 +6,8 @@ class Auth
 {
   public function handle()
   {
-    if (!$_SESSION['user'] ?? false) {
-      header('location: /');
-      exit();
+    if (!isset($_SESSION['user'])) {
+      return redirect("/");
     }
   }
 }

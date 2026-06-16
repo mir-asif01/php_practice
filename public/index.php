@@ -1,5 +1,4 @@
 <?php
-
 use Core\Session;
 
 session_start();

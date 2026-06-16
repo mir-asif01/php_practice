@@ -4,15 +4,6 @@ namespace Core;
 
 class Session
 {
-  public static function has($key)
-  {
-  }
-
-  public static function put($key, $value)
-  {
-  }
-
-
   // To retrieve information from session
   public static function get($key, $default = null)
   {
@@ -28,7 +19,7 @@ class Session
   // TO clear the session starting with __flash prefix
   public static function unflash()
   {
-    unset($_SESSION['__flash']);
+    unset($_SESSION['__flash']['old']);
   }
 
   public static function flush()

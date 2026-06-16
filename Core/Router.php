@@ -57,28 +57,27 @@ class Router
     foreach ($this->routes as $route) {
       if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
         Middleware::resolve($route['middleware']);
-
-
-
-        // if ($route['middleware']) {
-        //   $middleware = Middleware::MAP[$route['middleware']];
-        //   (new $middleware())->handle();
-        // }
-
-
-        // if ($route['middleware'] === 'guest') {
-        //   (new Auth())->handle();
-        // }
-        // if ($route['middleware'] === 'auth') {
-        //   (new Guest())->handle();
-        // }
-        require base_path("Http/controllers" . $route['controller']);
+        return require base_path("Http/controllers" . $route['controller']);
       }
     }
   }
 
 }
-;
+
+
+
+// if ($route['middleware']) {
+//   $middleware = Middleware::MAP[$route['middleware']];
+//   (new $middleware())->handle();
+// }
+
+
+// if ($route['middleware'] === 'guest') {
+//   (new Auth())->handle();
+// }
+// if ($route['middleware'] === 'auth') {
+//   (new Guest())->handle();
+// }
 
 
 // $routes = require(base_path('routes.php'));

@@ -10,9 +10,9 @@
 // ];
 
 
-$router->get("/", "/index.php")->middleware('guest');
-$router->get("/about", "/about.php")->middleware('guest');
-$router->get("/contact", "/contact.php")->middleware('guest');
+$router->get("/", "/index.php");
+$router->get("/about", "/about.php");
+$router->get("/contact", "/contact.php");
 
 $router->get("/notes", "/notes/show.php")->middleware('auth');
 $router->get("/notes/create", "/notes/create.php")->middleware('auth');
