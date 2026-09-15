@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-
-  <style>
-  </style>
-  <?php require "partials/nav.php";?>
-</head>
-
+<?php require "partials/header.php";?>
+<?php require "partials/nav.php";?>
 <body>
-  <h1>Recommended Books</h1>
-  <ul>
-    <?php foreach ($filteredBooks as $book): ?>
-      <li>
-        <p><?= $book['name'] ?></p>
-        <p><?= $book['author'] ?></p>
-        <p><?= $book['ISBN'] ?></p>
-      </li>
-    <?php endforeach ?>
-  </ul>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
+    <ul>
+      <?php foreach ($filteredBooks as $book): ?>
+        <li class="mt-5">
+          <p class="text-xl font-semibold"><?= $book['name'] ?></p>
+          <p><?= $book['author'] ?></p>
+          <p><?= $book['ISBN'] ?></p>
+        </li>
+      <?php endforeach ?>
+    </ul>
+  </div>
 </body>
 
-</html>
+<?php require "partials/footer.php";?>
