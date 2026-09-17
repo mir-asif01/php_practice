@@ -32,5 +32,5 @@
     return $item['language'] === 'go';
   });
 
-  require "views/books.view.php";
+  require "views/posts.view.php";
 
