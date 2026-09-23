@@ -1,13 +1,14 @@
 <?php
-
 require "functions.php";
 // require "router.php";
 require "Database.php";
 
-$db = new Database();
-$post = $db->query("select * from posts where id>1")->fetch(PDO::FETCH_ASSOC);
+$config = require('config.php');
+$db_user = $config['user']['username'];
+$db_password = $config['user']['password'];
 
-die_and_dump($post);
+$db = new Database($config['database'],$db_user,$db_password);
+$posts = $db->query("select * from posts")->fetchAll();
 
 foreach ($posts as $post) {
   echo "<li>" . $post['title'] . "</li>";

@@ -4,21 +4,15 @@ class Database{
 
 public $connection;
 
-public function __construct(){
-    $host = "localhost";
-    $port = 3306;
-    $db = "practice";
-    $user = "root";
-    $charset = 'utf8mb4';
-    $pass = "asif0599";
+public function __construct($config,$username,$password){
+    $dsn = 'mysql:' . http_build_query($config,'',";");
 
-    $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
-
-    $this->connection = new PDO($dsn, 'root', $pass);
+    $this->connection = new PDO($dsn, $username, $password,[
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
 }
 
   public function query($query){
-   
     $statement = $this->connection->prepare($query);
     $statement->execute();
     return $statement;
