@@ -1,36 +1,21 @@
 <?php 
-
-  $books = [
-    [
-      'name' => 'The C Programming Language',
-      'language' => 'c',
-      'author' => 'Brian K and Denis R',
-      'ISBN' => 13456
-    ],
-    [
-      'name' => 'Learning SQL',
-      'language' => 'sql',
-      'author' => 'Allen Bieulieu',
-      'ISBN' => 34566
-    ],
-    [
-      'name' => 'Learning GO and Idiomatic Approach',
-      'language' => 'go',
-      'author' => 'Jon Bodner',
-      'ISBN' => 79643
-    ],
-    [
-      'name' => 'Software Development with GO',
-      'language' => 'go',
-      'author' => 'Unknown',
-      'ISBN' => 79643
-    ]
-  ];
- 
+  $heading = "My Posts";
   
-  $filteredBooks = array_filter($books,function($item){
-    return $item['language'] === 'go';
-  });
+  require "Database.php";
+
+  $config = require('config.php');
+  $db_user = $config['user']['username'];
+  $db_password = $config['user']['password'];
+
+  $db = new Database($config['database'],$db_user,$db_password);
+
+  $user_id = 2;
+  $query = "select * from posts where user_id=:id";
+
+  $posts = $db->query($query,['id' => $user_id])->fetchAll();
+  if(!$posts){
+    die_and_dump("No posts found!!!");
+  }
 
   require "views/posts.view.php";
 

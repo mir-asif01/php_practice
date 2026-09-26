@@ -9,6 +9,7 @@ $routes = [
   "/" => "controllers/index.php",
   "/about" => "controllers/about.php",
   "/posts" => "controllers/posts.php",
+  "/post" => "controllers/post.php"
 ];
 
 function abort($code = 404){
