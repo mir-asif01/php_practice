@@ -1,17 +1,11 @@
 <?php
 
+$routes = require("routes.php");
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 // die_and_dump($uri);
 
 /* ---------second version of the router------------- */
-
-$routes = [
-  "/" => "controllers/index.php",
-  "/about" => "controllers/about.php",
-  "/posts" => "controllers/posts.php",
-  "/post" => "controllers/post.php"
-];
-
 function abort($code = 404){
   require "controllers/{$code}.php";
   die();
