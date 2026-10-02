@@ -9,13 +9,10 @@
 
   $db = new Database($config['database'],$db_user,$db_password);
 
-  $user_id = 2;
+  $user_id = 3;
   $query = "select * from posts where user_id=:id";
 
-  $posts = $db->query($query,['id' => $user_id])->fetchAll();
-  if(!$posts){
-    die_and_dump("No posts found!!!");
-  }
+  $posts = $db->query($query,['id' => $user_id])->listOrFail();
 
   require "views/posts.view.php";
 

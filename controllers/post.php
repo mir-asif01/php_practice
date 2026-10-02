@@ -15,18 +15,10 @@ $query = "select * from posts where id=:id";
 
 $post = $db->query($query,[
   'id' => $id
-  ])->fetch();
-
-$error = "";
-
-if(!$post){
-  abort();
-}
+  ])->findOrFail();
 
 $current_user_id = 2;
 
-if($post['user_id'] !== $current_user_id){
-  abort(Response::FORBIDDEN);
-}
+authorize($post['user_id'] !== $current_user_id);
 
 require "views/post.view.php";
