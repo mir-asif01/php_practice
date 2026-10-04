@@ -9,7 +9,7 @@
 
   $db = new Database($config['database'],$db_user,$db_password);
 
-  $user_id = 3;
+  $user_id = 2;
   $query = "select * from posts where user_id=:id";
 
   $posts = $db->query($query,['id' => $user_id])->listOrFail();
