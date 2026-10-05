@@ -8,11 +8,9 @@
     <form method="POST">
       <div class="mb-5">
         <label for="title" class="block mb-2.5 text-sm font-medium text-heading">Title</label>
-        <textarea type="text" name="title" id="title" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-        rows="1"
-        placeholder="title of post"> 
-        <?= isset($_POST['title']) ? $_POST['title'] : '' ?>
-      </textarea>
+        <input type="text" name="title" id="title" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+        placeholder="title of post" value=<?= isset($_POST['title']) ? $_POST['title'] : '' ?>
+        />
         <p class="text-red-500 font-small"><?= $errors['title'] ?></p>
       </div>
       <div class="mb-5">

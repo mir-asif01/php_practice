@@ -16,7 +16,7 @@
     <?php endforeach ?>
   </div>
   <div class="mt-5 mx-auto lg:px-14">
-    <a href="/post-create" class="bg-blue-500 px-3 py-2 rounded-md text-white">Create</a>
+    <a href="/post/create" class="bg-blue-500 px-3 py-2 rounded-md text-white">Create</a>
   </div>
 </body>
 

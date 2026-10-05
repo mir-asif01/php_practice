@@ -2,6 +2,7 @@
 $heading = "Create Post";
 
 require "Database.php";
+require 'Validator.php';
 
 // die_and_dump($_SERVER);
 
@@ -13,17 +14,16 @@ $db = new Database($config['database'],$db_user,$db_password);
 $errors = [];
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
-  if(strlen($_POST['title']) === 0){
-    $errors['title'] = "title can not be empty";
+
+  // echo strlen($_POST['body']);
+  // die_and_dump(Validator::string($_POST['body']));
+
+  if(!Validator::string($_POST['title'],10,100)){
+    $errors['title'] = "Title length more than 10 and less than 100 ";
   }
-  if(strlen($_POST['title']) > 100){
-    $errors['title'] = "title can not be more than 100 characters";
-  }
-  if(strlen($_POST['body']) === 0){
-    $errors['body'] = "body can not be empty";
-  }
-  if(strlen($_POST['body']) > 1000){
-    $errors['body'] = "body can not be more than 500 characters";
+
+  if(!Validator::string($_POST['body'],100,1000)){
+    $errors['body'] = "Body length more than 100 and less than 1000 ";
   }
 
   if(empty($errors)){
@@ -34,8 +34,5 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     ]);
   }
 }
-    
-
-
 
 require "views/post-create.view.php";
