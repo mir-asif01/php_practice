@@ -11,14 +11,14 @@
         <input type="text" name="title" id="title" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
         placeholder="title of post" value=<?= isset($_POST['title']) ? $_POST['title'] : '' ?>
         />
-        <p class="text-red-500 font-small"><?= $errors['title'] ?></p>
+        <p class="text-red-500 font-small"><?= isset($errors['title']) ? $errors['title'] : "" ?></p>
       </div>
       <div class="mb-5">
         <label for="body" class="block mb-2.5 text-sm font-medium text-heading">Body</label>
         <textarea type="text" id="body" name="body" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
         rows="5"
         placeholder="post description"><?= isset($_POST['body']) ? $_POST['body'] : '' ?></textarea>
-        <p class="text-red-500 font-small"><?= $errors['body']?></p>
+        <p class="text-red-500 font-small"><?= isset($errors['body']) ? $errors['body'] :"" ?></p>
       </div>
       <button type="submit" class="bg-blue-500 px-3 py-2 rounded-md text-white cursor-pointer">Submit</button>
     </form>

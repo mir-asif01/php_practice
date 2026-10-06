@@ -18,7 +18,7 @@
               <a class="text-white transition" href="posts"> Posts </a>
             </li>
 
-            <li class="<?= urlIs('/about') ? "bg-gray-500 px-2 py-1 rounded-md" :"" ?>">
+            <li class="<?= urlIs('about') ? "bg-gray-500 px-2 py-1 rounded-md" :"" ?>">
               <a class="text-white transition" href="about"> About </a>
             </li>
 

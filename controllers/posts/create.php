@@ -2,16 +2,15 @@
 
 require base_path("Validator.php");
 
- $config = require(base_path("config.php"));
+$config = require(base_path("config.php"));
 $db_user = $config['user']['username'];
 $db_password = $config['user']['password'];
 
 $db = new Database($config['database'],$db_user,$db_password);
 
-$errors = [
-  'title' => "",
-  'body' => ""
-];
+$errors = [];
+
+
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 
   if(!Validator::string($_POST['title'],10,100)){
