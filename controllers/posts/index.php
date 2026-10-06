@@ -14,5 +14,5 @@
 
   $posts = $db->query($query,['id' => $user_id])->listOrFail();
 
-  require "views/posts.view.php";
+  require "views/posts/index.view.php";
 

@@ -1,5 +1,6 @@
-<?php require "partials/header.php";?>
-<?php require "partials/nav.php";?>
+<?php require "views/partials/header.php";?>
+<?php require "views/partials/nav.php";?>
+
 <body>
   <div class="lg:px-14 py-10 shadow-sm">
     <h1 class="text-4xl"><?= $heading ?></h1>
@@ -11,4 +12,4 @@
   </div>
 </body>
 
-<?php require "partials/footer.php";?>
+<?php require "views/partials/footer.php";?>

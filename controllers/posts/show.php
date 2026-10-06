@@ -21,4 +21,4 @@ $current_user_id = 2;
 
 authorize($post['user_id'] !== $current_user_id);
 
-require "views/post.view.php";
+require "views/posts/show.view.php";

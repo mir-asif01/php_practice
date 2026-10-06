@@ -3,7 +3,8 @@
 return [
   "/" => "controllers/index.php",
   "/about" => "controllers/about.php",
-  "/posts" => "controllers/posts.php",
-  "/post" => "controllers/post.php",
-  "/post/create" => "controllers/post-create.php"
+  // post routes
+  "/posts" => "controllers/posts/index.php",
+  "/post" => "controllers/posts/show.php",
+  "/post/create" => "controllers/posts/create.php"
 ];
