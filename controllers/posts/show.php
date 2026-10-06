@@ -1,10 +1,6 @@
 <?php
 
-$heading = "Viewing Single Post";
-
-require "Database.php";
-
-$config = require('config.php');
+$config = require(base_path("config.php"));
 $db_user = $config['user']['username'];
 $db_password = $config['user']['password'];
 
@@ -21,4 +17,7 @@ $current_user_id = 2;
 
 authorize($post['user_id'] !== $current_user_id);
 
-require "views/posts/show.view.php";
+view("posts/show.view.php",[
+  'heading' => "Viewing Single Post",
+  'post' => $post
+]);

@@ -1,4 +1,5 @@
 <?php
-$heading = "Welcome.";
 
-require "views/index.view.php";
+view("index.view.php",[
+  'heading' => "Welocme"
+]);

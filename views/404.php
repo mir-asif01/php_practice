@@ -1,5 +1,5 @@
-<?php require "partials/header.php";?>
-<?php require "partials/nav.php";?>
+<?php require base_path("views/partials/header.php");?>
+<?php require base_path("views/partials/nav.php");?>
 <body>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 text-center">
     <h1 class="text-red-500 text-4xl mb-20">404 Page not found</h1>
@@ -7,4 +7,4 @@
   </div>
 </body>
 
-<?php require "partials/footer.php";?>
+<?php require base_path("views/partials/footer.php");?>

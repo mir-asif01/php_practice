@@ -1,3 +1,5 @@
 <?php
 
-require "views/404.php";
+view("404.php",[
+  'heading' => '404 page'
+]);

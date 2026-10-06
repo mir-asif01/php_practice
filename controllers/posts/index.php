@@ -1,9 +1,6 @@
 <?php 
-  $heading = "My Posts";
-  
-  require "Database.php";
 
-  $config = require('config.php');
+  $config = require(base_path("config.php"));
   $db_user = $config['user']['username'];
   $db_password = $config['user']['password'];
 
@@ -14,5 +11,8 @@
 
   $posts = $db->query($query,['id' => $user_id])->listOrFail();
 
-  require "views/posts/index.view.php";
+  view("posts/index.view.php",[
+  'heading' => "Your Posts",
+  'posts' => $posts
+]);
 
