@@ -1,5 +1,3 @@
 <?php
 
-view("404.php",[
-  'heading' => '404 page'
-]);
+view("404.php");

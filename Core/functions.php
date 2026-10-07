@@ -26,4 +26,9 @@ function view($path,$attributes=[]){
   require base_path("views/" .$path);
 }
 
+function redirect(){
+   header('location: /posts');
+  exit();
+}
+
 // die_and_dump($_SERVER['REQUEST_URI']);

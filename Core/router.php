@@ -6,7 +6,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 /* ---------second version of the router------------- */
 function abort($code = 404){
-  require "controllers/{$code}.php";
+  require base_path("controllers/{$code}.php");
   die();
 }
 
