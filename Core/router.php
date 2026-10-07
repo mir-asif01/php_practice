@@ -1,6 +1,5 @@
 <?php
-
-$routes = require("routes.php");
+$routes = require base_path("routes.php");
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 // die_and_dump($uri);
@@ -13,7 +12,7 @@ function abort($code = 404){
 
 function route_to_controllers($uri,$routes){
   if(array_key_exists($uri,$routes)){
-    require $routes[$uri];
+    require base_path($routes[$uri]);
   }else{
     abort();
   }

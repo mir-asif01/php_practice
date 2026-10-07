@@ -1,5 +1,7 @@
 <?php 
 
+  use Core\Database;
+
   $config = require(base_path("config.php"));
   $db_user = $config['user']['username'];
   $db_password = $config['user']['password'];
