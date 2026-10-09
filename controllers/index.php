@@ -1,5 +1,5 @@
 <?php
 
-view("index.view.php",[
-  'heading' => "Welocme"
+view("index.view.php", [
+  'heading' => "Welocme Here!!"
 ]);

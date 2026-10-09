@@ -29,7 +29,7 @@ public function __construct($config,$username,$password){
     $result = $this->list();
 
     if(!$result){
-      abort();
+      $this->abort();
     }
 
     return $result;
@@ -43,9 +43,14 @@ public function __construct($config,$username,$password){
     $result = $this->find();
 
     if(!$result){
-      abort();
+      $this->abort();
     }
 
     return $result;
+  }
+
+  public static function abort($status=404){
+  require base_path("controllers/{$$status}.php");
+  die();
   }
 }
